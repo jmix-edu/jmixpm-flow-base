@@ -12,14 +12,17 @@ public class TaskService {
     private DataManager dataManager;
 
     public User findLeastBusyUser() {
-        return dataManager.loadValues("select u, count(t.id) " +
-                        "from User u left outer join Task_ t " +
-                        "on u = t.assignee " +
-                        "group by u order by count(t.id)")
-                .properties("user", "tasks")
-                .list().stream()
-                .map(e -> e.<User>getValue("user"))
-                .findFirst()
-                .orElseThrow(IllegalStateException::new);
+        List<KeyValueEntity> keyValueEntities = dataManager.loadValues(new ValueLoadContext().setQuery(new ValueLoadContext.Query(
+                "select u, sum(t.estimatedEfforts) from User u " +
+                        "left outer join Task_ t on u = t.assignee " +
+                        "group by u order by sum(t.estimatedEfforts)"))
+                .addProperty("user")
+                .addProperty("efforts"));
+
+        User leastBusy = keyValueEntities.get(0).getValue("user");
+        if (leastBusy == null) {
+            throw new IllegalStateException();
+        }
+        return leastBusy;
     }
 }
