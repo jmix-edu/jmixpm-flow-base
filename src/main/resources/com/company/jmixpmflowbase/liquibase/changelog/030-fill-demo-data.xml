@@ -6,10 +6,11 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <property name="today" value="now()" dbms="!oracle, !mysqldb, !mariadb"/>
-    <property name="twoDaysAgo" value="now() - INTERVAL 2 DAY" dbms="!oracle, !mysqldb, !mariadb"/>
-    <property name="twoDaysLater" value="now() + INTERVAL 2 DAY" dbms="!oracle, !mysqldb, !mariadb"/>
-    <property name="weekAfter" value="now() + INTERVAL 7 DAY" dbms="!oracle, !mysqldb, !mariadb"/>
-    <property name="uuid_function" value="uid.uuid_generate_v4()" dbms="!oracle, !mysqldb, !mariadb"/>
+    <property name="twoDaysAgo" value="now() - INTERVAL '2' DAY" dbms="!oracle, !mysqldb, !mariadb"/>
+    <property name="twoDaysLater" value="now() + INTERVAL '2' DAY" dbms="!oracle, !mysqldb, !mariadb"/>
+    <property name="weekAfter" value="now() + INTERVAL '7' DAY" dbms="!oracle, !mysqldb, !mariadb"/>
+    <property name="uuid_function" value="gen_random_uuid()" dbms="postgresql"/>
+    <property name="uuid_function" value="uuid()" dbms="hsqldb"/>
 
     <changeSet id="1" author="jmixpm-flow-base" context="!cuba">
 
@@ -19,6 +20,22 @@
             <column name="USERNAME" value="dev1"/>
             <column name="PASSWORD" value="{noop}admin"/>
             <column name="ACTIVE" valueBoolean="true"/>
+        </insert>
+
+         <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="dev1"/>
+            <column name="ROLE_CODE" value="ui-minimal"/>
+            <column name="ROLE_TYPE" value="resource"/>
+        </insert>
+
+        <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="dev1"/>
+            <column name="ROLE_CODE" value="tasks-viewer"/>
+            <column name="ROLE_TYPE" value="resource"/>
         </insert>
 
     </changeSet>
