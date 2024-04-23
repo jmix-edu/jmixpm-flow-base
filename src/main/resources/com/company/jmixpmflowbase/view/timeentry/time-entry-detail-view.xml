@@ -36,6 +36,7 @@
                 </actions>
             </entityPicker>
             <textArea id="descriptionField" height="9.5em" property="description"/>
+            <checkbox id="approvedField" property="approved"/>
         </formLayout>
         <hbox id="detailActions">
             <button id="saveAndCloseBtn" action="saveAction"/>
