@@ -18,6 +18,9 @@
             <column name="ID" value="60885987-1b61-4247-95c8-dff348347f93"/>
             <column name="VERSION" value="1"/>
             <column name="USERNAME" value="dev1"/>
+            <column name="FIRST_NAME" value="Alex"/>
+            <column name="LAST_NAME" value="Hamilton"/>
+            <column name="EMAIL" value="alex@sample.com"/>
             <column name="PASSWORD" value="{noop}admin"/>
             <column name="ACTIVE" valueBoolean="true"/>
         </insert>
@@ -45,6 +48,9 @@
             <column name="ID" value="60885987-1b61-4247-95c9-dff348347f39"/>
             <column name="VERSION" value="1"/>
             <column name="USERNAME" value="dev2"/>
+            <column name="FIRST_NAME" value="Peter"/>
+            <column name="LAST_NAME" value="Johnson"/>
+            <column name="EMAIL" value="peter@sample.com"/>
             <column name="PASSWORD" value="{noop}admin"/>
             <column name="ACTIVE" valueBoolean="true"/>
         </insert>
