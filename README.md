@@ -9,4 +9,5 @@ This project contains:
 
 Project may be used as a basic Flow project for:
 
-* Charts add-on
+* Charts add-on training
+* Reports add-on training
