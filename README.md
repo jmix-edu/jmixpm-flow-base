@@ -9,6 +9,12 @@ This project contains:
 
 Project may be used as a basic Flow project for trainings:
 
+* Security basic
+* Working with data basic
+* UI basic
+* Working with files in Jmix
+* Using Jmix Stidio efficiently
+* Advanced deployment
 * Emailing in Jmix
-* Using Jmix Stidio efficientky
+* Testing Jmix applications
 
