@@ -22,6 +22,10 @@ public class Project {
     @Id
     private UUID id;
 
+    @Column(name = "DEFAULT_PROJECT", nullable = false)
+    @NotNull
+    private Boolean defaultProject = false;
+
     @NotNull
     @InstanceName
     @Column(name = "NAME", nullable = false)
@@ -44,6 +48,14 @@ public class Project {
     @Composition
     @OneToMany(mappedBy = "project")
     private List<com.company.jmixpmflowbase.entity.Task> tasks;
+
+    public Boolean getDefaultProject() {
+        return defaultProject;
+    }
+
+    public void setDefaultProject(Boolean defaultProject) {
+        this.defaultProject = defaultProject;
+    }
 
     public ProjectStatus getStatus() {
         return status == null ? null : ProjectStatus.fromId(status);
