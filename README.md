@@ -13,7 +13,7 @@ Project may be used as a basic Flow project for trainings:
 * Working with data basic
 * UI basic
 * Working with files in Jmix
-* Using Jmix Stidio efficiently
+* Using Jmix Studio efficiently
 * Advanced deployment
 * Emailing in Jmix
 * Testing Jmix applications
